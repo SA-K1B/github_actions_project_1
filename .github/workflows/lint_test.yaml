@@ -3,9 +3,11 @@ on:
     push:              # pushing to the main branch will trigger this workflow
         branches:
             - master
+        paths-ignore:
+        - '.github/workflow/*'     
     pull_request:      # opening a pull request will trigger this workflow
         types:
-            - opened
+            - opened       
 jobs:
     linting:
         runs-on: ubuntu-latest
