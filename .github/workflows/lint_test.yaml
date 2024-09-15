@@ -4,7 +4,7 @@ on:
         branches:
             - master
         paths-ignore:
-        - '.github/workflow/*'     
+        - '.github/workflows/*'     
     pull_request:      # opening a pull request will trigger this workflow
         types:
             - opened       
