@@ -11,6 +11,7 @@ jobs:
             - name: run linting
               run: npm run lint
     testing:
+        needs: linting
         runs-on: ubuntu-latest
         steps:
             - name: get code
