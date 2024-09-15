@@ -1,0 +1,24 @@
+name: list and test
+on: push
+jobs:
+    linting:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v4
+            - name: install dependencies
+              run: npm ci
+            - name: run linting
+              run: npm run lint
+    testing:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v4
+            - name: install dependencies
+              run: npm ci
+            - name: run testing
+              run: npm run testing                     
+            
+
+            
