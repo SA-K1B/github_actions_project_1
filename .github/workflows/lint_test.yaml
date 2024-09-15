@@ -1,5 +1,11 @@
 name: list and test
-on: push
+on: 
+    push:              # pushing to the main branch will trigger this workflow
+        branches:
+            - main
+    pull_request:      # opening a pull request will trigger this workflow
+        types:
+            - opened
 jobs:
     linting:
         runs-on: ubuntu-latest
