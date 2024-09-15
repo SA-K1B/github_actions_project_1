@@ -2,7 +2,7 @@ name: list and test
 on: 
     push:              # pushing to the main branch will trigger this workflow
         branches:
-            - main
+            - master
     pull_request:      # opening a pull request will trigger this workflow
         types:
             - opened
