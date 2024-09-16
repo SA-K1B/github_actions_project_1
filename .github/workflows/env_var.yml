@@ -1,0 +1,21 @@
+name: Environment variable
+on:
+    push
+env:
+    varForAll: Hello all
+jobs:
+    first:
+        runs-on: ubuntu-latest
+        env:
+            varForFirst: Hello first
+        steps:
+            - name: print env variable
+              run: echo "Env variable is ${{env.varForFirst}}"
+
+    second:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print env variable
+              run: echo "Env variable  for all is ${{env.varForAll}}"
+            - name: print env variable
+              run: echo "Env variable  for first is ${{env.varForFirst}}"   
