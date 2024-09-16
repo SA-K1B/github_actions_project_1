@@ -1,9 +1,9 @@
 name: list and test
 on: 
-    push:              # pushing to the main branch will trigger this workflow
+    push:              # pushing to the main branch and also not change anything in the 'github/workflows/*' will trigger this workflow
         branches:
             - master
-        paths-ignore:
+        paths-ignore:  
         - '.github/workflows/*'     
     pull_request:      # opening a pull request will trigger this workflow
         types:
@@ -27,7 +27,23 @@ jobs:
             - name: install dependencies
               run: npm ci
             - name: run testing
-              run: npm run test                     
+              run: npm run test
+    building:
+      needs: testing
+      runs-on: ubuntu-latest
+      steps:
+        - name: get code
+          uses: actions/checkout@v4
+        - name: install dependencies
+          run: npm ci
+        - name: build
+          run: npm run build
+        - name: upload artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: my-artifacts
+            path: dist    
+
             
 
             
