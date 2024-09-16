@@ -3,8 +3,8 @@ on:
     push:              # pushing to the main branch and also not change anything in the 'github/workflows/*' will trigger this workflow
         branches:
             - master
-        paths-ignore:  
-        - '.github/workflows/*'     
+        # paths-ignore:  
+        # - '.github/workflows/*'     
     pull_request:      # opening a pull request will trigger this workflow
         types:
             - opened       
@@ -43,7 +43,16 @@ jobs:
           with:
             name: my-artifacts      #name of the artifact
             path: dist              #artifact will be found in this directory
-
-            
+    
+    deploy:
+      needs: building
+      runs-on: ubuntu-latest
+      steps:
+        - name: get artifacts
+          uses: actions/download-artifact@v4
+          with:
+            name: my-artifacts               #donwload artifacts named my-artifacts
+        - name: deployment
+          run: echo "other deployment steps...."   
 
             
