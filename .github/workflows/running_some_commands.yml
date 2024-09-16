@@ -1,0 +1,17 @@
+name: commands running
+on: push
+jobs:
+    commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get the code
+              uses: actions/checkout@v4
+            - name: linux commands running
+              run: |
+                 pwd
+                 ls -la
+                 cd src/test
+                 ls 
+
+
+        

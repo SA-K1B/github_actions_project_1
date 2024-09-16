@@ -1,8 +1,8 @@
 name: list and test
 on: 
-    push:              # pushing to the main branch and also not change anything in the 'github/workflows/*' will trigger this workflow
-        branches:
-            - master
+    # push:              # pushing to the main branch and also not change anything in the 'github/workflows/*' will trigger this workflow
+    #     branches:
+    #         - master
         # paths-ignore:  
         # - '.github/workflows/*'     
     pull_request:      # opening a pull request will trigger this workflow
@@ -69,7 +69,7 @@ jobs:
           uses: actions/download-artifact@v4
           with:
             name: my-artifacts     #donwload artifacts named my-artifacts
-        - name: view my-artifacts
+        - name: view everything in the current directory including artifacts
           run : ls                   #listing all the files in the current directory
         - name: deployment
           run: echo "other deployment steps...."   
