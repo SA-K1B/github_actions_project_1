@@ -1,10 +1,10 @@
 name: list and test
 on: 
-    push:              # pushing to the main branch and also not change anything in the 'github/workflows/*' will trigger this workflow
-        branches:
-            - master
-        # paths-ignore:  
-        # - '.github/workflows/*'     
+    # push:              # pushing to the main branch and also not change anything in the 'github/workflows/*' will trigger this workflow
+    #     branches:
+    #         - master
+    #     # paths-ignore:  
+    #     # - '.github/workflows/*'     
     pull_request:      # opening a pull request will trigger this workflow
         types:
           - opened                 
