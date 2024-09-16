@@ -14,6 +14,11 @@ jobs:
         steps:
             - name: get code
               uses: actions/checkout@v4
+            - name: Caching
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                key: cache-node-${{hashFiles('**/package-lock.json')}}  
             - name: install dependencies
               run: npm ci
             - name: run linting
@@ -24,6 +29,11 @@ jobs:
         steps:
             - name: get code
               uses: actions/checkout@v4
+            - name: Caching
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                key: cache-node-${{hashFiles('**/package-lock.json')}}  
             - name: install dependencies
               run: npm ci
             - name: run testing
@@ -34,6 +44,11 @@ jobs:
       steps:
         - name: get code
           uses: actions/checkout@v4
+        - name: Caching
+          uses: actions/cache@v4
+          with:
+            path: ~/.npm
+            key: cache-node-${{hashFiles('**/package-lock.json')}}  
         - name: install dependencies
           run: npm ci
         - name: build
