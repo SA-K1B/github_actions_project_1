@@ -63,12 +63,14 @@ jobs:
       needs: building
       runs-on: ubuntu-latest
       steps:
+        - name: get code
+          uses: actions/checkout@v4
         - name: get artifacts
           uses: actions/download-artifact@v4
           with:
             name: my-artifacts     #donwload artifacts named my-artifacts
         - name: view my-artifacts
-          run : ls                   
+          run : ls                   #listing all the files in the current directory
         - name: deployment
           run: echo "other deployment steps...."   
 
