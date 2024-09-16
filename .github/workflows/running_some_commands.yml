@@ -1,5 +1,5 @@
 name: commands running
-on: pull_request
+on: push
 jobs:
     commands:
         runs-on: ubuntu-latest
