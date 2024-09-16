@@ -16,6 +16,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: print env variable
-              run: echo "Env variable  for all is ${{env.varForAll}}"
+              run: echo "Env variable  for all is $varForAll"
             - name: print env variable
               run: echo "Env variable  for first is ${{env.varForFirst}}"   
