@@ -3,6 +3,8 @@ on:
     push
 env:
     varForAll: Hello all
+    username: ${{secrets.USERNAME}}
+    passwor: ${{secrets.PASSWORD}}
 jobs:
     first:
         runs-on: ubuntu-latest
@@ -18,4 +20,6 @@ jobs:
             - name: print env variable
               run: echo "Env variable  for all is $varForAll"
             - name: print env variable
-              run: echo "Env variable  for first is ${{env.varForFirst}}"   
+              run: echo "Env variable  for first is ${{env.varForFirst}}"
+            - name: print username
+              run: echo "Username is ${{env.username}}"    
