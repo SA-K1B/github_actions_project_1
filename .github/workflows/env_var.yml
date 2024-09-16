@@ -1,5 +1,5 @@
 name: Environment variable
-on:
+on: 
     push
 env:
     varForAll: Hello all
